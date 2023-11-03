@@ -4,13 +4,14 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-jupyterlab = "*"
-ipywidgets = "*"
-jupyterlab-widgets = "*"
 importlib-metadata = "*"
 light-the-torch = "*"
 matplotlib = "*"
 pandas = "*"
+jupyterlab = "<4"
+jupyterlab-git = "*"
+jupyterlab-widgets = "*"
+ipywidgets = "*"
 
 [dev-packages]
 pre-commit = "*"

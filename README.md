@@ -1,5 +1,9 @@
 # W&B Demos
 
+## Requirements
+
+- pipenv
+
 ## Setup the development environment
 
 ```shell

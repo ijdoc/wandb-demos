@@ -1,9 +1,10 @@
 # W&B Demos
 
-## Setup the environment
+## Setup the development environment
 
 ```shell
-pipenv sync
+pipenv sync --dev
+pipenv run pre-commit install
 ```
 
 ## Start jupyterlab

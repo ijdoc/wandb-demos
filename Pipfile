@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 jupyterlab = "*"
+ipywidgets = "*"
+jupyterlab-widgets = "*"
 
 [dev-packages]
 

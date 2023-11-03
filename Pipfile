@@ -7,6 +7,10 @@ name = "pypi"
 jupyterlab = "*"
 ipywidgets = "*"
 jupyterlab-widgets = "*"
+importlib-metadata = "*"
+light-the-torch = "*"
+matplotlib = "*"
+pandas = "*"
 
 [dev-packages]
 

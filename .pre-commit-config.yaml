@@ -7,3 +7,9 @@ repos:
         stages: [commit]
         language: system
         entry: pipenv run jupyter nbconvert --clear-output --inplace
+      - id: python-formatter
+        name: python-formatter
+        files: \.py$
+        stages: [commit]
+        language: system
+        entry: pipenv run black

@@ -94,6 +94,7 @@ def multipipe(event, context):
 
     # Get number of available logical cores
     plimit = mp.cpu_count()
+    print(f"This environment has {plimit} logical cores")
 
     # Setup management variables
     results = []
@@ -122,7 +123,7 @@ def multipipe(event, context):
 
         if pcount == plimit:  # There is not currently room for another process
             # Wait until there are results in the Pipes
-            finishedConns = multiprocessing.connection.wait(parent_conns)
+            finishedConns = mp.connection.wait(parent_conns)
             # Collect the results and remove the connection as processing
             # the connection again will lead to errors
             for conn in finishedConns:

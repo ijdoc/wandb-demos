@@ -1,12 +1,60 @@
-```
-sls deploy
-```
+# AWS Lambda Demo for W&B
+
+## Requirements
+
+- Python 3.9
+- pipenv
+- node
+
+This lambda demo is setup using the [serverless framework](https://www.serverless.com/), which can be installed with:
 
 ```
-sls invoke -f hello
+npm install -g serverless
 ```
 
-# Project Initialization
+## Getting Started
+
+1. Create a `.env` file with the following contents:
+    ```
+    WANDB_API_KEY="your-api-key"
+    WANDB_ENTITY="your-entity"
+    WANDB_PROJECT="your-project"
+    ```
+
+2. Sync `npm` and `pipenv` dependencies
+    ```shell
+    npm install
+    pipenv sync --dev
+    ```
+
+3. Setup your AWS credentials. If you need a sample permissions policy document, check the "How this project was created" section at the end of this README
+
+4. Deploy the lambda functions with (repeat every time you make changes to the code):
+    ```shell
+    sls deploy
+    ```
+
+5. Execute a function and log the results (e.g.):
+    ```shell
+    sls invoke -f multipipe & sleep 2; sls logs -f multipipe -t &
+    ```
+
+## Local debugging
+
+You can debug any of the included functions locally by executing the handler.py function directly from the pipenv shell (e.g.):
+```shell
+pipenv shell
+python handler.py multipipe
+```
+
+You can also obtain information on all possible functions via:
+```shell
+pipenv shell
+python handler.py -h
+```
+
+<details>
+<summary>How this project was created</summary>
 
 This project was created as follows:
 
@@ -16,7 +64,7 @@ This project was created as follows:
    ```
 2. Created a serverless project from the repo root by running:
    ```shell
-   sls create --template aws-python3 --path {project_name}
+   sls create --template aws-python3 --path lambda-wandb-test
    ```
 
 3. Created AWS user group with initial permissions created with the [serverless policy generator](https://open-sl.github.io/serverless-permission-generator/). Some required permissions were still missing:
@@ -25,9 +73,6 @@ This project was created as follows:
     - `cloudformation:DeleteChangeSet`
     - `logs:TagResource`
     - `lambda:TagResource`
-
-    <details>
-    <summary>Group policy permissions</summary>
 
     ```json
     {
@@ -204,6 +249,8 @@ This project was created as follows:
     }
     ```
 
-    </details>
-
 4. Ran `sls remove && sls deploy` to debug policy permissions, until the stack was properly created
+
+5. Added necessary `serverless` plugins using `npm`
+
+</details>

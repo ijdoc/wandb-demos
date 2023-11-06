@@ -3,18 +3,16 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
+[requires]
+python_version = "3.9"
+
 [packages]
-importlib-metadata = "*"
-light-the-torch = "*"
-matplotlib = "*"
-pandas = "*"
-jupyterlab = "<4"
-jupyterlab-git = "*"
-jupyterlab-widgets = "*"
-ipywidgets = "*"
 
 [dev-packages]
 pre-commit = "*"
+black = "*"
+nbconvert = "*"
+jupyter = "*"
 
-[requires]
-python_version = "3.9"
+[scripts]
+cleanup = "pipenv run bash scripts/cleanup.sh"

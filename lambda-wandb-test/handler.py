@@ -141,7 +141,7 @@ def multipipe(event, context):
 
 
 if __name__ == "__main__":
-    # Create the parser
+    # Create argument parser
     parser = argparse.ArgumentParser(
         description="A demo lambda handler function definition."
     )

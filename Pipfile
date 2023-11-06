@@ -15,4 +15,4 @@ nbconvert = "*"
 jupyter = "*"
 
 [scripts]
-cleanup = "pipenv run bash scripts/cleanup.sh"
+cleanup = "./scripts/cleanup.sh"

@@ -102,7 +102,7 @@ This project was created as follows:
             "cloudformation:UpdateStack"
           ],
           "Resource": [
-            "arn:aws:cloudformation:{region}:{account_id}:stack/{project_name}-{stage}/*"
+            "arn:aws:cloudformation:{region}:{account_id}:stack/{service_name}-{stage}/*"
           ]
         },
         {
@@ -121,7 +121,7 @@ This project was created as follows:
             "s3:DeleteBucketPolicy"
           ],
           "Resource": [
-            "arn:aws:s3:::{project_name}*serverlessdeploy*"
+            "arn:aws:s3:::{service_name}*serverlessdeploy*"
           ]
         },
         {
@@ -132,7 +132,7 @@ This project was created as follows:
             "s3:DeleteObject"
           ],
           "Resource": [
-            "arn:aws:s3:::{project_name}*serverlessdeploy*"
+            "arn:aws:s3:::{service_name}*serverlessdeploy*"
           ]
         },
         {
@@ -159,7 +159,7 @@ This project was created as follows:
             "lambda:Update*"
           ],
           "Resource": [
-            "arn:aws:lambda:{region}:{account_id}:function:{project_name}-{stage}-*"
+            "arn:aws:lambda:{region}:{account_id}:function:{service_name}-{stage}-*"
           ]
         },
         {
@@ -211,7 +211,7 @@ This project was created as follows:
             "events:Delete*"
           ],
           "Resource": [
-            "arn:aws:events:{region}:{account_id}:rule/{project_name}-{stage}-{region}"
+            "arn:aws:events:{region}:{account_id}:rule/{service_name}-{stage}-{region}"
           ]
         },
         {
@@ -220,7 +220,7 @@ This project was created as follows:
             "events:DescribeRule"
           ],
           "Resource": [
-            "arn:aws:events:{region}:{account_id}:rule/{project_name}-{stage}-*"
+            "arn:aws:events:{region}:{account_id}:rule/{service_name}-{stage}-*"
           ]
         },
         {
@@ -242,7 +242,7 @@ This project was created as follows:
             "iam:DeleteRole"
           ],
           "Resource": [
-            "arn:aws:iam::{account_id}:role/{project_name}-{stage}-{region}-lambdaRole"
+            "arn:aws:iam::{account_id}:role/{service_name}-{stage}-{region}-lambdaRole"
           ]
         }
       ]

@@ -33,12 +33,17 @@ npm install -g serverless
     - While debugging, you can create a debugging AWS user with admin priviledges (not recommended for production) and setup its credentials by running `aws configure`
     - When ready to deploy, remove admin permissions for your user and instead create a user group with the permissions included in the "Policy Permissions" section below.
 
-4. Deploy the lambda function (repeat every time you make changes to the code):
+4. Log into the pipenv shell
+    ```shell
+    pipenv shell
+    ```
+
+5. Deploy the lambda function (repeat every time you make changes to the code):
     ```shell
     sls deploy
     ```
 
-5. Execute the function and return the log:
+6. Execute the function and return the log:
     ```shell
     sls invoke -f hello -l
     ```

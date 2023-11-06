@@ -40,7 +40,7 @@ def make_response(event):
     # integration
     """
     return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
+        "message": "Your function executed successfully!",
         "event": event
     }
     """

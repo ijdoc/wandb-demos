@@ -39,7 +39,7 @@ def make_response(event):
     # integration
     """
     return {
-        "message": "Go Serverless v1.0! Your function executed successfully!",
+        "message": "Your function executed successfully!",
         "event": event
     }
     """
@@ -49,6 +49,7 @@ def hello(event, context):
     job_type = check_lambda(event, context)
 
     run = wandb.init(
+        config={"epochs": 10},
         entity=os.environ["WANDB_ENTITY"],
         project=os.environ["WANDB_PROJECT"],
         job_type=job_type,

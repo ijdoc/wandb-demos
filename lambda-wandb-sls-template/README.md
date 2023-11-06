@@ -2,11 +2,10 @@
 
 ## Requirements
 
-- Python 3.9
-- pipenv
-- node
-- docker
-- aws cli
+- pipenv: to manage python (version 3.9) and dependencies
+- node: to manage serverless plugins (e.g., dockerize pip requirements)
+- docker: to build the lambda container
+- aws cli: to setup AWS credentials for serverless to use
 
 This lambda demo is setup using the [serverless framework](https://www.serverless.com/), which can be installed with:
 

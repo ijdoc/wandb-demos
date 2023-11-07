@@ -22,7 +22,7 @@ def process_cell_source(source):
         formatted_lines = formatted_source.split("\n")
         for i, original in replacements:
             formatted_lines[i] = original  # Put the original line back
-        return "\n".join(formatted_lines)
+        return "\n".join(formatted_lines).rstrip()
     except NothingChanged:
         return source
 

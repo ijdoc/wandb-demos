@@ -18,3 +18,5 @@ ipywidgets = "*"
 
 [dev-packages]
 
+[scripts]
+start = "./scripts/start.sh"

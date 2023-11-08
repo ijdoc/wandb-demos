@@ -6,7 +6,7 @@ Additional inormation on Nexus available [here](https://github.com/wandb/wandb/b
 
 - pipenv: to manage python (version 3.10) and dependencies
 - node: to manage serverless plugins (e.g., `serverless-python-requirements`)
-- docker: to isolate environment when collecting pip requirements
+- docker: to isolate the environment when collecting pip requirements
 - aws cli: to setup AWS credentials for serverless to use
 
 This lambda demo is setup using the [serverless framework](https://www.serverless.com/), which can be installed with:
@@ -60,7 +60,7 @@ python handler.py hello
 <details>
 <summary>Policy Permissions</summary>
 
-These permissions apply to a single serverless lambda stack. Replace `{account_id}` accordingly.
+These policy permissions apply to service names starting with `lambda-wandb`. Replace `{account_id}` accordingly.
 
 ```json
 {

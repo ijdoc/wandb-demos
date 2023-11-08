@@ -4,10 +4,10 @@ Additional inormation on Nexus available [here](https://github.com/wandb/wandb/b
 
 ## Requirements
 
-- pipenv: to manage python (version 3.10) and dependencies
-- node: to manage serverless plugins (e.g., `serverless-python-requirements`)
+- pipenv: to manage the python virtual environment (version 3.10) and its dependencies
+- node: to manage the required serverless plugins (e.g., `serverless-python-requirements`)
 - docker: to isolate the environment when collecting pip requirements
-- aws cli: to setup AWS credentials for serverless to use
+- aws cli (optional): to configure the AWS credentials for serverless to use
 
 This lambda demo is setup using the [serverless framework](https://www.serverless.com/), which can be installed with:
 

@@ -20,6 +20,8 @@ npm install -g serverless
     WANDB_API_KEY="your-api-key"
     WANDB_ENTITY="your-entity"
     WANDB_PROJECT="your-project"
+    WANDB_DISABLE_SERVICE=True
+    WANDB_START_METHOD=thread
     ```
 
 2. Sync `npm` and `pipenv` dependencies

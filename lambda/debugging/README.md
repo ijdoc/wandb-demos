@@ -24,12 +24,12 @@ npm install -g serverless
 2. Sync `npm` and `pipenv` dependencies
     ```shell
     npm install
-    pipenv sync --dev
+    pipenv sync --dev --dev
     ```
 
 3. Setup your AWS credentials. If you need a sample permissions policy document, check the "How this project was created" section at the end of this README
 
-4. Deploy the lambda functions with (repeat every time you make changes to the code):
+4. Deploy the lambda functions with (repeat every time the code changes):
     ```shell
     sls deploy
     ```
@@ -102,7 +102,7 @@ This project was created as follows:
             "cloudformation:UpdateStack"
           ],
           "Resource": [
-            "arn:aws:cloudformation:{region}:{account_id}:stack/{service_name}-{stage}/*"
+            "arn:aws:cloudformation:*:{account_id}:stack/lambda-wandb*"
           ]
         },
         {
@@ -121,7 +121,7 @@ This project was created as follows:
             "s3:DeleteBucketPolicy"
           ],
           "Resource": [
-            "arn:aws:s3:::{service_name}*serverlessdeploy*"
+            "arn:aws:s3:::lambda-wandb*serverlessdeploy*"
           ]
         },
         {
@@ -132,7 +132,7 @@ This project was created as follows:
             "s3:DeleteObject"
           ],
           "Resource": [
-            "arn:aws:s3:::{service_name}*serverlessdeploy*"
+            "arn:aws:s3:::lambda-wandb*serverlessdeploy*"
           ]
         },
         {
@@ -159,7 +159,7 @@ This project was created as follows:
             "lambda:Update*"
           ],
           "Resource": [
-            "arn:aws:lambda:{region}:{account_id}:function:{service_name}-{stage}-*"
+            "arn:aws:lambda:*:{account_id}:function:lambda-wandb*"
           ]
         },
         {
@@ -179,7 +179,7 @@ This project was created as follows:
             "logs:TagResource"
           ],
           "Resource": [
-            "arn:aws:logs:{region}:{account_id}:*"
+            "arn:aws:logs:*:{account_id}:*"
           ],
           "Effect": "Allow"
         },
@@ -188,7 +188,7 @@ This project was created as follows:
             "logs:PutLogEvents"
           ],
           "Resource": [
-            "arn:aws:logs:{region}:{account_id}:*"
+            "arn:aws:logs:*:{account_id}:*"
           ],
           "Effect": "Allow"
         },
@@ -211,7 +211,7 @@ This project was created as follows:
             "events:Delete*"
           ],
           "Resource": [
-            "arn:aws:events:{region}:{account_id}:rule/{service_name}-{stage}-{region}"
+            "arn:aws:events:*:{account_id}:rule/lambda-wandb*"
           ]
         },
         {
@@ -220,7 +220,7 @@ This project was created as follows:
             "events:DescribeRule"
           ],
           "Resource": [
-            "arn:aws:events:{region}:{account_id}:rule/{service_name}-{stage}-*"
+            "arn:aws:events:*:{account_id}:rule/lambda-wandb*"
           ]
         },
         {
@@ -242,7 +242,7 @@ This project was created as follows:
             "iam:DeleteRole"
           ],
           "Resource": [
-            "arn:aws:iam::{account_id}:role/{service_name}-{stage}-{region}-lambdaRole"
+            "arn:aws:iam::{account_id}:role/lambda-wandb*-lambdaRole"
           ]
         }
       ]

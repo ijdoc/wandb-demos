@@ -3,8 +3,8 @@
 ## Requirements
 
 - pipenv: to manage python (version 3.10) and dependencies
-- node: to manage serverless plugins (e.g., dockerize pip requirements)
-- docker: to build the lambda container
+- node: to manage serverless plugins (e.g., `serverless-python-requirements`)
+- docker: to isolate environment when collecting pip requirements
 - aws cli: to setup AWS credentials for serverless to use
 
 This lambda demo is setup using the [serverless framework](https://www.serverless.com/), which can be installed with:
@@ -27,10 +27,10 @@ npm install -g serverless
 2. Sync `npm` and `pipenv` dependencies
     ```shell
     npm install
-    pipenv sync
+    pipenv sync --dev
     ```
 
-3. Setup AWS credentials for serverless.
+3. Setup AWS user and credentials for serverless.
     - While debugging, you can create a debugging AWS user with admin priviledges (not recommended for production) and setup its credentials by running `aws configure`
     - When ready to deploy, remove admin permissions for your user and instead create a user group with the permissions included in the "Policy Permissions" section below.
 
@@ -39,7 +39,7 @@ npm install -g serverless
     pipenv shell
     ```
 
-5. Deploy the lambda function (repeat every time you make changes to the code):
+5. Deploy the lambda function (repeat every time the code changes):
     ```shell
     sls deploy
     ```
@@ -60,7 +60,7 @@ python handler.py hello
 <details>
 <summary>Policy Permissions</summary>
 
-These permissions apply to a single serverless lambda stack. Replace `{service_name}`, `{stage}`, `{region}` and `{account_id}` accordingly.
+These permissions apply to a single serverless lambda stack. Replace `{account_id}` accordingly.
 
 ```json
 {
@@ -90,7 +90,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "cloudformation:UpdateStack"
       ],
       "Resource": [
-        "arn:aws:cloudformation:{region}:{account_id}:stack/{service_name}-{stage}/*"
+        "arn:aws:cloudformation:*:{account_id}:stack/lambda-wandb*"
       ]
     },
     {
@@ -109,7 +109,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "s3:DeleteBucketPolicy"
       ],
       "Resource": [
-        "arn:aws:s3:::{service_name}*serverlessdeploy*"
+        "arn:aws:s3:::lambda-wandb*serverlessdeploy*"
       ]
     },
     {
@@ -120,7 +120,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "s3:DeleteObject"
       ],
       "Resource": [
-        "arn:aws:s3:::{service_name}*serverlessdeploy*"
+        "arn:aws:s3:::lambda-wandb*serverlessdeploy*"
       ]
     },
     {
@@ -147,7 +147,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "lambda:Update*"
       ],
       "Resource": [
-        "arn:aws:lambda:{region}:{account_id}:function:{service_name}-{stage}-*"
+        "arn:aws:lambda:*:{account_id}:function:lambda-wandb*"
       ]
     },
     {
@@ -167,7 +167,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "logs:TagResource"
       ],
       "Resource": [
-        "arn:aws:logs:{region}:{account_id}:*"
+        "arn:aws:logs:*:{account_id}:*"
       ],
       "Effect": "Allow"
     },
@@ -176,7 +176,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "logs:PutLogEvents"
       ],
       "Resource": [
-        "arn:aws:logs:{region}:{account_id}:*"
+        "arn:aws:logs:*:{account_id}:*"
       ],
       "Effect": "Allow"
     },
@@ -199,7 +199,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "events:Delete*"
       ],
       "Resource": [
-        "arn:aws:events:{region}:{account_id}:rule/{service_name}-{stage}-{region}"
+        "arn:aws:events:*:{account_id}:rule/lambda-wandb*"
       ]
     },
     {
@@ -208,7 +208,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "events:DescribeRule"
       ],
       "Resource": [
-        "arn:aws:events:{region}:{account_id}:rule/{service_name}-{stage}-*"
+        "arn:aws:events:*:{account_id}:rule/lambda-wandb*"
       ]
     },
     {
@@ -230,7 +230,7 @@ These permissions apply to a single serverless lambda stack. Replace `{service_n
         "iam:DeleteRole"
       ],
       "Resource": [
-        "arn:aws:iam::{account_id}:role/{service_name}-{stage}-{region}-lambdaRole"
+        "arn:aws:iam::{account_id}:role/lambda-wandb*-lambdaRole"
       ]
     }
   ]

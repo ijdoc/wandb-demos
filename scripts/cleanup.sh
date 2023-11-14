@@ -4,17 +4,15 @@
 source $(dirname "$0")/header.sh
 test_command_outcome "Import header file"
 
-cd $(get_repo_root)/pytorch
-test_command_outcome "Go to pytorch folder"
-
+cd $(get_repo_root)/jupyterlab
 pipenv clean
-test_command_outcome "Clean dev pipenv environment"
+pipenv sync --dev
+test_command_outcome "Clean jupyterlab pipenv"
 
 cd $(get_repo_root)
-test_command_outcome "Go to repo root"
-
 pipenv clean
-test_command_outcome "Clean dev pipenv environment"
+pipenv sync --dev
+test_command_outcome "Clean root pipenv"
 
 # Find all .py files to reformat them
 find . -type f -name '*.py' ! -path './*/wandb/*' ! -path './*/node_modules/*' ! -path './*/artifacts/*' -exec pipenv run black {} \;

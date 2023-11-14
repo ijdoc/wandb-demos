@@ -11,7 +11,6 @@ python_version = "3.9"
 [dev-packages]
 pre-commit = "*"
 black = "*"
-nbconvert = "*"
 jupyter = "*"
 
 [scripts]

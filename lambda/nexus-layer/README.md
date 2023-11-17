@@ -1,8 +1,10 @@
-# AWS Lambda Demo for W&B
+# AWS Lambda Layer Sample Implementation for W&B Nexus
+
+Additional inormation on Nexus available [here](https://github.com/wandb/wandb/blob/main/nexus/README.md#installation) 
 
 ## Requirements
 
-- pipenv: to manage the python virtual environment (version 3.9) and its dependencies
+- pipenv: to manage the python virtual environment (version 3.10) and its dependencies
 - node: to manage the required serverless plugins (e.g., `serverless-python-requirements`)
 - docker: to isolate the environment when collecting pip requirements
 - aws cli (optional): to configure the AWS credentials for serverless to use
@@ -25,7 +27,7 @@ npm install -g serverless
 2. Sync `npm` and `pipenv` dependencies
     ```shell
     npm install
-    pipenv sync --dev --dev
+    pipenv sync --dev
     ```
 
 3. Setup AWS user and credentials for serverless.

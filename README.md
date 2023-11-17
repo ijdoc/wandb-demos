@@ -1,4 +1,4 @@
-# W&B Demos
+# W&B Examples
 
 ## Requirements
 

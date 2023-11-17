@@ -1,4 +1,4 @@
-# AWS Lambda Demo for W&B
+# AWS Lambda Layer Sample Implementation for W&B
 
 ## Requirements
 

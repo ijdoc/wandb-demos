@@ -2,6 +2,7 @@
 **/*.zip
 **/*.pth
 **/data/
+**/.wandb/
 **/wandb/
 **/artifacts/
 

@@ -17,6 +17,9 @@ jupyterlab-widgets = "*"
 ipywidgets = "*"
 
 [dev-packages]
+jupyterlab-lsp = "*"
+python-lsp-server = {version = "*", extras = ["all"]}
+python-lsp-black = "*"
 
 [scripts]
 start = "./scripts/start.sh"

@@ -4,11 +4,6 @@
 source $(dirname "$0")/header.sh
 test_command_outcome "Import header file"
 
-cd $(get_repo_root)/jupyterlab
-pipenv clean
-pipenv sync --dev
-test_command_outcome "Clean jupyterlab pipenv"
-
 cd $(get_repo_root)
 pipenv clean
 pipenv sync --dev

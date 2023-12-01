@@ -1,4 +1,6 @@
-# AWS Lambda Layer Sample Implementation for W&B >= 0.16.0 (Nexus)
+# AWS Lambda Layer Sample Implementation for W&B
+
+This implementation is valid for `wandb` 0.16.0 and above.
 
 ## Requirements
 
@@ -32,19 +34,14 @@ npm install -g serverless
     - While debugging, you can create a debugging AWS user with admin priviledges (not recommended for production) and setup its credentials by running `aws configure`
     - When ready to deploy, remove admin permissions for your user and instead create a user group with the permissions included in the "Policy Permissions" section below.
 
-4. Log into the pipenv shell
+4. Deploy the lambda function (repeat every time the code changes):
     ```shell
-    pipenv shell
+    pipenv run deploy
     ```
 
-5. Deploy the lambda function (repeat every time the code changes):
+5. Invoke the `hello` lambda function and return the log:
     ```shell
-    sls deploy
-    ```
-
-6. Execute the function and return the log:
-    ```shell
-    sls invoke -f hello -l
+    pipenv run sls invoke -f hello -l
     ```
 
 ## Local debugging

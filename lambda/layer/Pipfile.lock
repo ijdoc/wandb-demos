@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "d515b6a283b08ca57f5e84281c38e33d29458d7d26927015df473bb9bf068b05"
+            "sha256": "cfa7b71c72928e267065a07916f831d46414813040280c228888a3c00be6ea5f"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -180,7 +180,7 @@
                 "sha256:becc576b7e6b553d22cbdf418686ee4daa443d7217999125c045ad56322dda10",
                 "sha256:ca37bf6a6d0046272c152eea90d2e4ef34593aaa32e8873fc14c16440f22d4b7"
             ],
-            "markers": "python_version >= '3.10' and sys_platform == 'linux'",
+            "markers": "sys_platform != 'linux'",
             "version": "==4.25.1"
         },
         "psutil": {
@@ -403,13 +403,25 @@
             "version": "==2.1.0"
         },
         "wandb": {
-            "extras": [],
             "hashes": [
                 "sha256:8d9875f1d8d75fee32dc51f6727bc277ce4f3869d7319ccf5f36ce596597402a",
                 "sha256:e103142a5ecdb158d29441c2bf9f935ae149ed562377f7cebffd2a6f7c9de949"
             ],
             "index": "pypi",
+            "markers": "python_version >= '3.7'",
             "version": "==0.16.0"
+        },
+        "wandb-core": {
+            "hashes": [
+                "sha256:628f6914d58f6dfe5c2f0154f366ccc00f3d42f5f6ce13d9f9914ddafa17dfcd",
+                "sha256:6aeaddb3cc75485c1412931db4c889fc5c7815c172688ed430ab5ca28ac28a46",
+                "sha256:808aa3af8d1899fc7f07cce2e255b18994e3ffb08078b93b178f2bc40ae38b8e",
+                "sha256:d5b6b39b5cac87cbdf6da96c535c0d397214a29f9d569172d9743436cd29496d",
+                "sha256:d8aa990c21aa0e2fa560eebb3b459616ad34a6ac5d4f2a6dadee3e55fa630a35"
+            ],
+            "index": "pypi",
+            "markers": "python_version >= '3.6'",
+            "version": "==0.17.0b2"
         }
     },
     "develop": {}

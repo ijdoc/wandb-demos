@@ -9,7 +9,7 @@ python_version = "3.10"
 [dev-packages]
 
 [packages]
-wandb = "*"
+wandb = ">=0.16.0"
 wandb-core = "*"
 
 [scripts]

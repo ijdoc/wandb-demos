@@ -9,4 +9,4 @@ python_version = "3.10"
 [dev-packages]
 
 [packages]
-wandb = "0.15.11"
+wandb = "*"

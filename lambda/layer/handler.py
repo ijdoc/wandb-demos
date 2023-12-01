@@ -5,26 +5,42 @@ import time
 import random
 import sys
 import logging
+import wandb
 
+# Configure logger
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
+
+# Log some helpful system info
+logger.info(f"sys.path: {sys.path}")
+logger.info(f"PYTHONPATH: {os.environ['PYTHONPATH']}")
+
+wandb.require("nexus")
+logger.info(f"Using wandb nexus")
 
 
 def check_lambda(event, context):
     job_type = "local"
 
     if event != "" and context != "":
-        print(f"Event: {event}")
-        print(f"Context: {context}")
+        logger.info(f"Event: {event}")
+        logger.info(f"Context: {context}")
         job_type = "lambda"
 
     # Check W&B credentials
     if not "WANDB_API_KEY" in os.environ.keys():
         raise RuntimeError("WANDB_API_KEY environment key not defined")
-    # else:
-    #     # Check if the key has the right length (should be 40 characters)
-    #     print(f'API key has {len(os.environ["WANDB_API_KEY"])} characters')
+    else:
+        # Check if the key has the right length (should be 40 characters)
+        key_length = 40
+        logger.info(
+            f'WANDB_API_KEY key has {len(os.environ["WANDB_API_KEY"])} characters'
+        )
+        assert (
+            len(os.environ["WANDB_API_KEY"]) == key_length
+        ), f"WANDB_API_KEY must be {key_length} characters long"
 
+    logger.info(f"This is a {job_type} job")
     return job_type
 
 
@@ -52,24 +68,6 @@ def make_response(event):
 def hello(event, context):
     job_type = check_lambda(event, context)
 
-    logger.info("Python Path: {}".format(sys.path))
-    # Try to import wandb and log if it's successful or not
-    try:
-        import wandb
-
-        logger.info("Successfully imported wandb.")
-    except ImportError as e:
-        logger.error("Error importing wandb: {}".format(e))
-    logger.info("PYTHONPATH: {}".format(os.environ["PYTHONPATH"]))
-
-    # return {
-    #     'statusCode': 200,
-    #     'body': {"sys.executable": sys.executable,
-    #              "job_type": job_type,
-    #              "WANDB__EXECUTABLE": os.environ["WANDB__EXECUTABLE"],
-    #              "wandb":dir(wandb)}
-    # }
-
     run = wandb.init(
         config={"epochs": 10},
         entity=os.environ["WANDB_ENTITY"],
@@ -96,7 +94,7 @@ if __name__ == "__main__":
         choices=["hello"],
         type=str,
         help="The demo function to invoke. Choices are: "
-        "'hello' - run a mock process logging data to W&B ",
+        "'hello' - run a mock process that logs data to W&B ",
     )
 
     # Parse the arguments

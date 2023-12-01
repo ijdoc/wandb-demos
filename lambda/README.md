@@ -4,9 +4,9 @@ This directory includes the following examples:
 
 | Directory                         | Description                       |
 | -------------------------------- | ---------------------------------- |
-| 📂 /[full](./full/)               | `wandb` packaged with the lambda   |
-| 📂 /[layer](./layer/)             | `wandb` packaged in a lambda layer |
-| 📂 /[nexus-layer](./nexus-layer/) | Faster `nexus` (beta) implementation of `wandb` packaged in a lambda layer |
+| 📂 /[layer](./layer/)             | Fastest `nexus` (beta) implementation of `wandb` packaged in a lambda layer |
+| 📂 /[full](./full/)               | `wandb` packaged with the lambda (slow & bulky)   |
+| 📂 /[layer-pre-nexus](./layer-pre-nexus/) | `wandb<0.16.0` packaged in a lambda layer |
 | 📄 README.md                      | This file                          |
 
 ## Requirements

@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "5e728f61dddd1fec0a23451e3784f08a0326bad2be74acbce12c7a7887acb61c"
+            "sha256": "ad02cde590f5f57cbee98bff4297c5b66d76b22a016507c9b19cf11936647a00"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -165,6 +165,12 @@
             ],
             "markers": "python_version >= '3.5'",
             "version": "==3.4"
+        },
+        "pathtools": {
+            "hashes": [
+                "sha256:7c35c5421a39bb82e58018febd90e3b6e5db34c5443aaaf742b3f33d4655f1c0"
+            ],
+            "version": "==0.1.2"
         },
         "protobuf": {
             "hashes": [
@@ -403,25 +409,13 @@
             "version": "==2.0.7"
         },
         "wandb": {
-            "extras": [
-                "nexus"
-            ],
             "hashes": [
-                "sha256:8d9875f1d8d75fee32dc51f6727bc277ce4f3869d7319ccf5f36ce596597402a",
-                "sha256:e103142a5ecdb158d29441c2bf9f935ae149ed562377f7cebffd2a6f7c9de949"
+                "sha256:d0ea8b683c1416b626de0a57800687fb6c36307b3e1a455b7ed4dee6e342f391",
+                "sha256:d686ddb602891b8c63b5a8fffd7585d43ca441025cea2ee0bb01d06e35bfbdb1"
             ],
-            "markers": "python_version >= '3.7'",
-            "version": "==0.16.0"
-        },
-        "wandb-core": {
-            "hashes": [
-                "sha256:37f964454dffcd4bf78e0005502148a21aa89f69250fb8fdf478d4e89dd01b3b",
-                "sha256:56b0523942add36bec4d3a9f5f435b812763d52b9948f13db0a363bc0fd9dabf",
-                "sha256:97e35d47c4476c40da39a56f58bbb8318a2ca65ec0ac0e7c36003f5112e174e9",
-                "sha256:a5cc99de1d8592cbcf0355181d679f79b96cc4b6017dea60c64dbcc86aa6329c",
-                "sha256:e7c400d21934f4d0ad717a4b1f228775d318ab71d26bdaf84ff39d0ad81f6c7f"
-            ],
-            "version": "==0.17.0b1"
+            "index": "pypi",
+            "markers": "python_version >= '3.6'",
+            "version": "==0.15.11"
         }
     },
     "develop": {}

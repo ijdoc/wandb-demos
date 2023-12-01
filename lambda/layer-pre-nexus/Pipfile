@@ -9,7 +9,4 @@ python_version = "3.10"
 [dev-packages]
 
 [packages]
-wandb = {extras = ["nexus"], version = "*"}
-
-[pipenv]
-allow_prereleases = true
+wandb = "0.15.11"

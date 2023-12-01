@@ -1,6 +1,4 @@
-# AWS Lambda Layer Sample Implementation for W&B Nexus
-
-Additional inormation on Nexus available [here](https://github.com/wandb/wandb/blob/main/nexus/README.md#installation) 
+# AWS Lambda Layer Sample Implementation for W&B
 
 ## Requirements
 
@@ -22,6 +20,8 @@ npm install -g serverless
     WANDB_API_KEY="your-api-key"
     WANDB_ENTITY="your-entity"
     WANDB_PROJECT="your-project"
+    WANDB_DISABLE_SERVICE=True
+    WANDB_START_METHOD=thread
     ```
 
 2. Sync `npm` and `pipenv` dependencies
